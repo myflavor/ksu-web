@@ -5,7 +5,7 @@
         <view class="content-view">
             <uv-form labelPosition="top" :model="form" labelWidth="256rpx" ref="formRef">
                 <uv-form-item label="执行命令">
-                    <uv-textarea v-model="form.cmd"/>
+                    <uv-textarea v-model="form.cmd" height="300rpx"/>
                 </uv-form-item>
                 
                 <uv-form-item label="输出结果">
