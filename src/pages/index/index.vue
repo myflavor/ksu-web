@@ -31,7 +31,13 @@ const form = ref({
 
 const execute = async ()=>{
     const res = await exec(form.value.cmd)
-    form.value.result = JSON.stringify(res)
+    
+    if (res.errno === 0){
+        form.value.result = res.stdout.replaceAll('\\n','\n')
+    }else {
+        form.value.result = res.stderr.replaceAll('\\n','\n')
+    }
+    
 }
 </script>
 
