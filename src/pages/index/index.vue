@@ -3,13 +3,13 @@
         <uv-navbar :left-icon="false" :fixed="false" title="KernelSU" :safeAreaInsetTop="false"/>
         
         <view class="content-view">
-            <uv-form labelPosition="top" :model="form" labelWidth="120rpx" ref="formRef">
+            <uv-form labelPosition="top" :model="form" labelWidth="256rpx" ref="formRef">
                 <uv-form-item label="执行命令">
-                    <uv-textarea v-model="form.cmd"/>
+                    <uv-textarea v-model="form.cmd" />
                 </uv-form-item>
                 
                 <uv-form-item label="输出结果"  >
-                    <uv-textarea v-model="form.result" disabled/>
+                    <uv-textarea v-model="form.result" disabled height="400rpx"/>
                 </uv-form-item>
             </uv-form>
             
