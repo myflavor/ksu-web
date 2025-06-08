@@ -2,7 +2,7 @@ ksu-web快速开发demo
 
 基于[uniapp](https://uniapp.dcloud.net.cn/quickstart-cli.html "uniapp")搭建
 
-引入[uv-ui](https://www.uvui.cn "uv-ui")组件库
+引入[uv-ui](https://www.uvui.cn/components/intro.html "uv-ui")组件库
 
 
 安装nodejs环境下
