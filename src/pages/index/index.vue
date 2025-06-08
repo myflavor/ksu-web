@@ -1,53 +1,50 @@
 <template>
-    <view class="content">
-        <image class="logo" src="/static/logo.png"></image>
-        <view class="text-area">
-            <text class="title">{{ title }}</text>
+    <view class="page-view">
+        <uv-navbar :left-icon="false" :fixed="false" title="KernelSU" :safeAreaInsetTop="false"/>
+        
+        <view class="content-view">
+            <uv-form labelPosition="top" :model="form" labelWidth="120rpx" ref="formRef">
+                <uv-form-item label="执行命令">
+                    <uv-textarea v-model="form.cmd"/>
+                </uv-form-item>
+                
+                <uv-form-item label="输出结果"  >
+                    <uv-textarea v-model="form.result" disabled/>
+                </uv-form-item>
+            </uv-form>
+            
+            <uv-button type="primary" @click="execute">执行</uv-button>
         </view>
+        
+        
+      
     </view>
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue'
-import { exec } from 'kernelsu'
+import {ref} from 'vue'
+import {exec} from 'kernelsu'
 
+const form = ref({
 
-onMounted(async ()=>{
-    const result = await exec('ls /data/system/NoActive')
-    console.log('result', result)
 })
 
-
-exec('')
-
-const title = ref('Hello')
-
+const execute = async ()=>{
+    const res = await exec(form.value.cmd)
+    form.value.result = JSON.stringify(res)
+}
 </script>
 
 <style>
-.content {
+.content-view{
+    flex: 1;
+    padding: 24rpx;
+    box-sizing: border-box;
+}
+.page-view{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo {
-    height: 200rpx;
-    width: 200rpx;
-    margin-top: 200rpx;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50rpx;
-}
-
-.text-area {
-    display: flex;
-    justify-content: center;
-}
-
-.title {
-    font-size: 36rpx;
-    color: #8f8f94;
 }
 </style>
