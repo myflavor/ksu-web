@@ -9,7 +9,7 @@
                 </uv-form-item>
                 
                 <uv-form-item label="输出结果">
-                    <uv-textarea v-model="form.result" disabled height="400rpx"/>
+                    <uv-textarea v-model="form.result" disabled height="500rpx"/>
                 </uv-form-item>
             </uv-form>
             
