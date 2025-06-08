@@ -18,3 +18,4 @@ npm run dev:h5
 npm build:h5
 ```
 
+打包后在dist/build/h5
